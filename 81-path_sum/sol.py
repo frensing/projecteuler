@@ -11,12 +11,12 @@ width = len(matrix[0])
 height = len(matrix)
 
 for x in range(1, width):
-  matrix[0][x] = matrix[0][x-1] + matrix[0][x]
+  matrix[0][x] += matrix[0][x-1]
 for y in range(1, height):
-  matrix[y][0] = matrix[y-1][0] + matrix[y][0]
+  matrix[y][0] += matrix[y-1][0]
 
 for y in range(1, height):
   for x in range(1, width):
-    matrix[y][x] = min(matrix[y-1][x], matrix[y][x-1]) + matrix[y][x]
+    matrix[y][x] += min(matrix[y-1][x], matrix[y][x-1])
 
 print(matrix[height-1][width-1])
